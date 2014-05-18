@@ -11,7 +11,8 @@
 			facebook_box_width: 150,
 			facebook_box_height: 80,
 			facebook_hover_speed: 300,
-			facebook_code: '<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>',
+			facebook_url: 'https://developers.facebook.com/docs/plugins/',
+			facebook_code: '<div class="fb-like" data-href="" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>',
 			facebook_js: '<div id="fb-root"></div><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=218996558156253&version=v2.0"; fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));</script>',
 			
 			twitter_logo_path: "images/mzsocial/twitter.jpg",
@@ -20,7 +21,8 @@
 			twitter_box_width: 130,
 			twitter_box_height: 80,
 			twitter_hover_speed: 300,
-			twitter_code: '<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://dev.twitter.com/pages/tweet_button" data-lang="en" data-count="vertical">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>',
+			twitter_url: "https://dev.twitter.com/pages/tweet_button",
+			twitter_code: '<a href="https://twitter.com/share" class="twitter-share-button" data-url="" data-lang="en" data-count="vertical">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>',
 			
 			gplus_logo_path: "images/mzsocial/gplus.jpg",
 			gplus_logo_width: 30,
@@ -36,18 +38,16 @@
 		var elements = {
 			facebook: {
 				container: $("<div>", {
-					class: "mzsocial mzsocial_facebook",
-					title: options.position
+					class: "mzsocial mzsocial_facebook"
 				}),
-				code: $("<div>" + options.facebook_code + "</div>"),
+				code: $("<div>" + options.facebook_code.replace('data-href=""', 'data-href="'+ options.facebook_url +'"') + "</div>"),
 				js: $(options.facebook_js)
 			},
 			twitter: {
 				container : $("<div>", {
-					class: "mzsocial mzsocial_twitter",
-					title: options.position
+					class: "mzsocial mzsocial_twitter"
 				}),
-				code : $("<div>" + options.twitter_code + "</div>")
+				code : $("<div>" + options.twitter_code.replace('data-url=""', 'data-url="'+ options.twitter_url +'"') + "</div>")
 			},
 			gplus: {
 				container : $("<div>", {
