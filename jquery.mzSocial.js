@@ -30,7 +30,17 @@
 			gplus_box_width: 130,
 			gplus_box_height: 80,
 			gplus_hover_speed: 300,
-			gplus_code: '<div class="g-plusone" data-size="tall"></div><script type="text/javascript">window.___gcfg = {lang: "pl"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/platform.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>'
+			gplus_code: '<div class="g-plusone" data-size="tall"></div><script type="text/javascript">window.___gcfg = {lang: "pl"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/platform.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>',
+			
+			linkedin_logo_path: "images/mzsocial/linkedin.jpg",
+			linkedin_logo_width: 30,
+			linkedin_logo_height: 80,
+			linkedin_box_width: 160,
+			linkedin_box_height: 80,
+			linkedin_hover_speed: 300,
+			linkedin_id: "",
+			linkedin_lang: "en_US",
+			linkedin_code: '<script src="//platform.linkedin.com/in.js" type="text/javascript">lang: </script><script type="IN/FollowCompany" data-id="" data-counter="top"></script>'
 		};
 		
 		var options = $.extend({}, defaults, options);
@@ -55,6 +65,12 @@
 					title: options.position
 				}),
 				code : $("<div>" + options.gplus_code + "</div>")
+			},
+			linkedin: {
+				container : $("<div>", {
+					class: "mzsocial mzsocial_linkedin"
+				}),
+				code : $("<div>" + options.linkedin_code.replace('data-id=""', 'data-id="'+ options.linkedin_id +'"').replace('lang: ', 'lang: '+ options.linkedin_lang) + "</div>")
 			}
 		};
 		
