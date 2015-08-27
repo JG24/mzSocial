@@ -1,6 +1,6 @@
 mzSocial
 ========
-Simple demo's for this project is here:
+This script will place Facebook, Twitter, Google+ or LinkedIn buttons on your website. Simple demo's for this project is here:
 
 http://marusz.net/poligon/mzSocial/demo1.html (Facebook and Twitter)
 
